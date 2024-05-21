@@ -1,1 +1,5 @@
 exportPattern("^[[:alpha:]]+")
+export(suggest_cocktail)
+export(suggest_random)
+export(get_recipe)
+export(load_recipes)
