@@ -3,7 +3,7 @@
 #' Get the recipe for a specific cocktail by name.
 #'
 #' @param cocktail_name A character string specifying the name of the cocktail.
-#' @return A data.frame containing the cocktail recipe.
+#' @return A list containing the cocktail recipe.
 #' @export
 get_recipe <- function(cocktail_name) {
   recipes <- load_recipes()
@@ -25,6 +25,6 @@ get_recipe <- function(cocktail_name) {
 
 # Helper function to filter recipes based on name
 filter_recipe <- function(recipes, cocktail_name) {
-  recipes <- recipes[recipes$Drink == cocktail_name, ]
+  recipes <- recipes[recipes$strDrink == cocktail_name, ]
   recipes
 }

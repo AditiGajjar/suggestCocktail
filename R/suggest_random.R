@@ -3,7 +3,7 @@
 #' Suggest a random cocktail based on category.
 #'
 #' @param category A character string specifying the category of the drink (e.g., "Cocktail", "Shot").
-#' @return A data.frame containing the randomly selected cocktail recipe.
+#' @return A list containing the randomly selected cocktail recipe.
 #' @export
 suggest_random <- function(category = c("Cocktail", "Shot", "Beer", "Milk / Float / Shake", "Ordinary Drink", "Other/Unknown", "Homemade Liqueur", "Punch / Party Drink", "Coffee / Tea", "Soft Drink / Soda", "Cocoa")) {
   recipes <- load_recipes()
