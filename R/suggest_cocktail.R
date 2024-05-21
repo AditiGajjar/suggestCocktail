@@ -11,11 +11,26 @@ suggest_cocktail <- function(ingredients) {
   if (nrow(filtered_recipes) == 0) {
     return("No matching cocktails found.")
   } else {
-    return(filtered_recipes)
+    structured_recipes <- lapply(1:nrow(filtered_recipes), function(i) {
+      list(
+        Name = filtered_recipes$strDrink[i],
+        ID = filtered_recipes$idDrink[i],
+        Alcoholic = filtered_recipes$strAlcoholic[i],
+        Category = filtered_recipes$strCategory[i],
+        Ingredients = filtered_recipes$Ingredients[i],
+        Measurements = filtered_recipes$Measurements[i],
+        Instructions = filtered_recipes$strInstructions[i]
+      )
+    })
+    return(structured_recipes)
   }
 }
 
-# Helper function to validate ingredients
-valid_ingredients <- function(recipes, ingredients) {
-  unique(unlist(recipes$Ingredients)) %in% ingredients
+# Helper function to filter recipes based on ingredients
+filter_ingredients <- function(recipes, ingredients) {
+  recipes <- recipes[apply(recipes, 1, function(row) {
+    recipe_ingredients <- unlist(strsplit(row["Ingredients"], ", "))
+    all(ingredients %in% recipe_ingredients)
+  }), ]
+  return(recipes)
 }
