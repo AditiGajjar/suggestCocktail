@@ -11,7 +11,15 @@ get_recipe <- function(cocktail_name) {
   if (nrow(recipe) == 0) {
     return("Cocktail not found.")
   } else {
-    return(recipe)
+    return(list(
+      Name = recipe$strDrink,
+      ID = recipe$idDrink,
+      Alcoholic = recipe$strAlcoholic,
+      Category = recipe$strCategory,
+      Ingredients = recipe$Ingredients,
+      Measurements = recipe$Measurements,
+      Instructions = recipe$strInstructions
+    ))
   }
 }
 

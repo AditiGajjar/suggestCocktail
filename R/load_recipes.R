@@ -1,4 +1,4 @@
-library(tidyverse)
+library(dplyr)
 #' Load Recipes
 #'
 #' Load and clean a database of cocktail recipes.
