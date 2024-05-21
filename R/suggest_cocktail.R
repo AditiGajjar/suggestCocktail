@@ -3,7 +3,7 @@
 #' Suggest a cocktail recipe based on available ingredients.
 #'
 #' @param ingredients A character vector of available ingredients.
-#' @return A data.frame containing the suggested cocktail recipes.
+#' @return A list containing the suggested cocktail recipes.
 #' @export
 suggest_cocktail <- function(ingredients) {
   recipes <- load_recipes()
