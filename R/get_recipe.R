@@ -7,10 +7,12 @@
 #' @export
 get_recipe <- function(cocktail_name) {
   recipes <- load_recipes()
+  # filter the recipe using the specified function
   recipe <- filter_recipe(recipes, cocktail_name)
   if (nrow(recipe) == 0) {
     return("Cocktail not found.")
   } else {
+    # structured return
     return(list(
       Name = recipe$strDrink,
       ID = recipe$idDrink,
