@@ -1,13 +1,12 @@
 library(dplyr)
 #' Load Recipes
 #'
-#' Load and clean a database of cocktail recipes.
+#' Load and clean the database of cocktail recipes.
 #'
-#' @return A data.frame containing the cleaned cocktail recipes.
+#' @return A data frame containing the cleaned cocktail recipes.
 #' @export
 load_recipes <- function() {
-  file_path <- here::here("inst", "extdata", "all_drinks.csv")
-  print(file_path)
+  file_path <- system.file(file.path("extdata", "all_drinks.csv"), package = "suggestCocktail")
   recipes <- suppressMessages(suppressWarnings(read.csv(file_path)))
 
   # ingredients into one column
